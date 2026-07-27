@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, BackgroundTasks, Depends, status
 from sqlalchemy.orm import Session
 
-from app.core.database import get_db
+from app.core.ai_service import analyze_transcript
+from app.core.database import SessionLocal, get_db
 from app.core.masking import mask_sensitive_data
 from app.core.roles import UserRole
 from app.models.analysis import Analysis
@@ -16,6 +17,7 @@ router = APIRouter(prefix="/transcripts", tags=["transcripts"])
 @router.post("", response_model=TranscriptOut, status_code=status.HTTP_202_ACCEPTED)
 def upload_transcript(
     transcript: TranscriptCreate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
@@ -36,6 +38,9 @@ def upload_transcript(
     )
     db.add(new_analysis)
     db.commit()
+    
+    background_tasks.add_task(run_analysis, new_transcript.id)
+
 
     return new_transcript
 
@@ -49,3 +54,25 @@ def list_transcripts(
     if current_user.role == UserRole.agent:
         query = query.filter(Transcript.user_id == current_user.id)
     return query.all()
+
+
+def run_analysis(transcript_id):
+    db = SessionLocal()
+    try:
+        transcript = db.query(Transcript).filter(Transcript.id == transcript_id).first()
+        analysis = db.query(Analysis).filter(Analysis.transcript_id == transcript_id).first()
+
+        try:
+            result = analyze_transcript(transcript.masked_content)
+            analysis.summary = result["summary"]
+            analysis.sentiment = result["sentiment"]
+            analysis.sentiment_score = result["sentiment_score"]
+            analysis.topic = result["topic"]
+            analysis.keywords = result["keywords"]
+            analysis.status = "completed"
+        except Exception:
+            analysis.status = "failed"
+
+        db.commit()
+    finally:
+        db.close()
