@@ -1,4 +1,4 @@
-from fastapi import APIRouter, BackgroundTasks, Depends, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.core.ai_service import analyze_transcript
@@ -10,6 +10,7 @@ from app.models.transcript import Transcript
 from app.models.user import User
 from app.routers.auth import get_current_user
 from app.schemas.transcript import TranscriptCreate, TranscriptOut
+from app.schemas.analysis import AnalysisOut
 
 router = APIRouter(prefix="/transcripts", tags=["transcripts"])
 
@@ -55,6 +56,19 @@ def list_transcripts(
         query = query.filter(Transcript.user_id == current_user.id)
     return query.all()
 
+
+@router.get("/{transcript_id}/analysis", response_model=AnalysisOut)
+def get_analysis(
+    transcript_id: str,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    analysis = db.query(Analysis).filter(Analysis.transcript_id == transcript_id).first()
+
+    if not analysis:
+        raise HTTPException(status_code=404, detail="Analiz bulunamadı")
+
+    return analysis
 
 def run_analysis(transcript_id):
     db = SessionLocal()
