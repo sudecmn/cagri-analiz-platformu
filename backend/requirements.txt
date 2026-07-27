@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+python-jose
+passlib
+bcrypt==4.0.1
+python-dotenv
+openai==2.48.0

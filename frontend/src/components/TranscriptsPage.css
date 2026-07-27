@@ -1,0 +1,98 @@
+.transcripts-page {
+  max-width: 700px;
+}
+
+.transcripts-page h1 {
+  font-size: 22px;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.upload-form {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.upload-form h2,
+.transcript-list h2 {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: white;
+  color: #111827;
+}
+
+.upload-form button {
+  background: #3b6ff0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.upload-form button:disabled {
+  background: #a9bdf5;
+  cursor: not-allowed;
+}
+
+.transcript-item {
+  background: white;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.transcript-date {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.transcript-item p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #111827;
+}
+
+.empty-state {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.error-message {
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}

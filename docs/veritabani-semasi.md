@@ -9,7 +9,7 @@
 
 ![ER Diyagramı](./assets/er-diagram.png)
 
-
+*(Görsel diyagram dbdiagram.io / drawSQL ile oluşturuldu — bkz. `docs/assets/er-diagram.png`)*
 
 - `users` 1—N `transcripts` (bir agent birden fazla çağrı yükler)
 - `users` 1—N `evaluations` (bir süpervizör birden fazla değerlendirme yapar)
@@ -28,6 +28,8 @@
 | email | text, unique | |
 | password_hash | text | Şifre hash'lenerek saklanır (NFR-01) |
 | role | enum | `agent`, `supervisor`, `admin` (bkz. gereksinim-analizi.md Bölüm 3) |
+| department | text | Örn. "Müşteri Hizmetleri", "Teknik Destek", "Tahsilat" — organizasyonel gruplama için |
+| is_active | boolean | Admin kullanıcıyı pasifleştirebilir (silme yerine — geçmiş kayıtlar korunur) |
 | created_at | timestamp | |
 
 ### `transcripts`
@@ -49,7 +51,7 @@
 | status | enum | `pending` / `completed` / `failed` — background task'ın durumunu takip eder (bkz. sistem-mimarisi.md, asenkron akış / 202 Accepted) |
 | summary | text | |
 | sentiment | enum | pozitif / negatif / nötr — **index gerekli** (FR-13) |
-| sentiment_score | numeric | -1.0 ile +1.0 arası sayısal skor — sıralama/raporlama için |
+| sentiment_score | numeric (0-100) | AI modelinin ham çıktısı (-1.0/+1.0) normalize edilerek saklanır — dashboard ve raporlarda tutarlılık için |
 | topic | text | **Index gerekli** (FR-13) |
 | keywords | jsonb | |
 | kvkk_detected | boolean | |
@@ -63,7 +65,7 @@
 | id | PK, uuid | |
 | transcript_id | FK → transcripts.id | (unique DEĞİL — 1—N ilişki) |
 | supervisor_id | FK → users.id | Puanı veren süpervizör |
-| quality_score | numeric (1.0–5.0) | FR-15 |
+| quality_score | numeric (1-100) | FR-15 |
 | notes | text | |
 | created_at | timestamp | |
 

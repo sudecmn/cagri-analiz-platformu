@@ -1,0 +1,10 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Ortam değişkenleri (gizli bilgiler)
+.env
+
+# Node (ileride frontend için)
+node_modules/

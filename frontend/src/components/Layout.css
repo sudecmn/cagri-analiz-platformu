@@ -1,0 +1,72 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #0f1729;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-item {
+  color: #8b94a8;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background 0.15s ease;
+}
+
+.nav-item.active {
+  background: #3b6ff0;
+  color: white;
+}
+
+.nav-item:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.logout-button {
+  background: none;
+  border: 1px solid #2e3a55;
+  color: #8b94a8;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.app-content {
+  flex: 1;
+  padding: 32px;
+  background: #f5f6fa;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
