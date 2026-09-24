@@ -23,3 +23,7 @@ class UserOut(BaseModel):
     role: UserRole
     department: str
     created_at: datetime
+    is_active: bool
+    
+class UserUpdate(BaseModel):
+    is_active: bool        

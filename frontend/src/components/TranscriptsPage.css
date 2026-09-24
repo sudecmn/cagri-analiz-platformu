@@ -23,8 +23,13 @@
   color: #111827;
 }
 
+.upload-form form {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-group {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
@@ -48,11 +53,23 @@
   color: #111827;
 }
 
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-group input[type="date"] {
+  max-width: 220px;
+}
+
 .upload-form button {
+  align-self: flex-start;
+  margin-top: 4px;
   background: #3b6ff0;
   color: white;
   border: none;
-  padding: 10px 18px;
+  padding: 10px 20px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
@@ -66,21 +83,43 @@
 .transcript-item {
   background: white;
   border-radius: 10px;
-  padding: 14px 16px;
-  margin-bottom: 10px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.transcript-item:hover {
+  box-shadow: 0 4px 14px rgba(16, 24, 40, 0.1);
+  border-color: #dbe4ff;
 }
 
 .transcript-date {
-  font-size: 12px;
-  color: #6b7280;
+  font-size: 11px;
+  color: #9ca3af;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .transcript-item p {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   font-size: 14px;
   color: #111827;
+  line-height: 1.5;
+}
+
+.mask-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin: 0 1px;
+  white-space: nowrap;
 }
 
 .empty-state {
@@ -95,4 +134,27 @@
   padding: 8px 12px;
   border-radius: 8px;
   margin-bottom: 14px;
+}
+
+.export-button {
+  background: #3b6ff0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.export-button:hover {
+  background: #2f5bd0;
+}
+
+.last-uploaded-box {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f0f4ff;
+  border-radius: 8px;
+  border: 1px solid #c7d7ff;
 }

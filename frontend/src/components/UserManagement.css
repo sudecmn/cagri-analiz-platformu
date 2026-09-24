@@ -1,0 +1,222 @@
+.user-management {
+  max-width: 960px;
+}
+
+.user-management-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.user-management-header h1 {
+  font-size: 22px;
+  color: #111827;
+  margin: 0 0 4px;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+.add-user-button {
+  background: #3b6ff0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-user-button:hover {
+  background: #2f5bd0;
+}
+
+.user-form-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.user-form-card h2 {
+  font-size: 16px;
+  margin: 0 0 16px;
+  color: #111827;
+}
+
+.user-form-card .form-group {
+  margin-bottom: 14px;
+}
+
+.user-form-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.user-form-card input,
+.user-form-card select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: white;
+  color: #111827;
+}
+
+.user-form-card button {
+  background: #3b6ff0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user-form-card button:disabled {
+  background: #a9bdf5;
+  cursor: not-allowed;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-card {
+  background: white;
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.user-card-info {
+  flex: 1;
+  min-width: 160px;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.user-email {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.user-department {
+  font-size: 13px;
+  color: #374151;
+  min-width: 100px;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.role-agent {
+  background: #eef2ff;
+  color: #3b6ff0;
+}
+
+.role-supervisor {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.role-admin {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-inactive {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.toggle-status-button {
+  border: 1px solid #d1d5db;
+  background: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.toggle-status-button.deactivate {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.toggle-status-button.deactivate:hover {
+  background: #fef2f2;
+}
+
+.toggle-status-button.activate {
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.toggle-status-button.activate:hover {
+  background: #f0fdf4;
+}
+
+.empty-state {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.error-message {
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}

@@ -1,10 +1,16 @@
 # Python
+**/venv/
 venv/
-__pycache__/
-*.pyc
+**/__pycache__/
+*.py[cod]
 
 # Ortam değişkenleri (gizli bilgiler)
+**/.env
 .env
+*.env
 
-# Node (ileride frontend için)
+# Node / Frontend
+**/node_modules/
 node_modules/
+dist/
+build/

@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from jose import jwt
 from passlib.context import CryptContext
+from fastapi import Header, HTTPException, status
 
 load_dotenv()
 
@@ -27,3 +28,14 @@ def create_access_token(data: dict):
     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+
+CALLMIND_API_KEY = os.getenv("CALLMIND_API_KEY")
+
+
+def verify_api_key(x_api_key: str = Header(...)):
+    if x_api_key != CALLMIND_API_KEY:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Geçersiz API anahtarı",
+        )

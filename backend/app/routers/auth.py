@@ -27,7 +27,7 @@ def login(credentials: LoginRequest, db: Session = Depends(get_db)):
         data={"sub": str(user.id), "role": user.role}
     )
 
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer", "role": user.role, "name": user.name}
 
 
 def get_current_user(
