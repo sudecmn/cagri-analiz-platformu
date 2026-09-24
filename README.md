@@ -20,6 +20,8 @@ role-based access control, and supervisor quality evaluation.
 
 ## Features
 
+
+
 - **Automatic Speech-to-Text:** Uploaded audio recordings are
   automatically transcribed using OpenAI Whisper. Audio files from
   various sources (including non-standard muxing) are normalized
@@ -47,6 +49,30 @@ role-based access control, and supervisor quality evaluation.
   full transcript list as Excel.
 - **External System Integration:** A separate, API-key-protected upload
   endpoint simulating integration with a real call center/PBX system.
+
+  ## Screenshots
+
+### 1. Executive Dashboard
+<img width="1919" height="1009" alt="Ekran görüntüsü 2026-09-24 150710" src="https://github.com/user-attachments/assets/2e55ee0c-5afc-42b7-8774-77b455fa1450" />
+
+
+
+
+### 2. Call Detail & AI Analysis
+<img width="1830" height="1011" alt="image" src="https://github.com/user-attachments/assets/92e2ab50-0240-49d9-a151-b1c482d33b86" />
+
+
+
+### 3. Audio Ingestion (Speech-to-Text)
+<img width="1357" height="524" alt="image" src="https://github.com/user-attachments/assets/3640e064-25b4-4a74-87f4-ecd651cc4096" />
+
+
+
+### 4. Authentication
+<img width="1410" height="1013" alt="Ekran görüntüsü 2026-07-20 131616" src="https://github.com/user-attachments/assets/0c5ceba9-5de0-45b7-9ce8-8e1d67c54a9c" />
+
+
+## Tech Stack
 
 ## Tech Stack
 
